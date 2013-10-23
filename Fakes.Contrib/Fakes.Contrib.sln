@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8AA041
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0604A22D-1F38-41AB-B0A4-0A2B0FE39FD1}"
 	ProjectSection(SolutionItems) = preProject
+		Fakes.Contrib\Fakes.Contrib.nuspec = Fakes.Contrib\Fakes.Contrib.nuspec
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
