@@ -1,4 +1,6 @@
-﻿using Demo.BookStore.Contexts;
+﻿using System.Diagnostics;
+using System.Linq;
+using Demo.BookStore.Contexts;
 using Demo.BookStore.Contexts.Fakes;
 using Demo.BookStore.Models;
 using Demo.BookStore.Repositories;
@@ -53,6 +55,46 @@ namespace Demo.BookStore.Tests.Repositories
 
             // Assert
             context.AssertWasCalled(mock => mock.InsertBook(With<Book>.Like(book => book.Title == title)));
+        }
+
+        [TestMethod]
+        public void InsertAllShouldInsertAllBookInTheContext()
+        {
+            // Arrange
+            var books = MakeBooks();
+            var context = new StubIBookContext().WithObserver();
+            var sut = MakeSut(context);
+
+            // Act
+            sut.InsertAll(books);
+
+            // Assert
+            context.AssertWasCalled(mock => mock.InsertBooks(books));
+        }
+
+        [TestMethod]
+        public void InsertShouldInsertBooksWithMatchingTitleInTheContext()
+        {
+            // Arrange
+            var books = MakeBooks();
+            var context = new StubIBookContext().WithObserver();
+            var sut = MakeSut(context);
+
+            // Act
+            sut.InsertAll(books);
+
+            // Assert
+            context.AssertWasCalled(mock => mock.InsertBooks(With.Array(books).Like((source, book) => book.Title == source.Title)));
+        }
+
+        private static Book[] MakeBooks(int id = 1)
+        {
+            return new[]
+            {
+                MakeBook("Random title " + id++),
+                MakeBook("Random title " + id++),
+                MakeBook("Random title " + id++)
+            };
         }
 
         private static Book MakeBook(string title = "Some title")

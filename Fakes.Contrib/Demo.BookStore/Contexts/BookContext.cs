@@ -8,6 +8,10 @@ namespace Demo.BookStore.Contexts
         {
         }
 
+        public void InsertBooks(Book[] books)
+        {
+        }
+
         public void UpdateBook(Book book)
         {
         }

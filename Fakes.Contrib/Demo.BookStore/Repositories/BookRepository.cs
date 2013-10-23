@@ -19,6 +19,11 @@ namespace Demo.BookStore.Repositories
             _context.InsertBook(entity);
         }
 
+        public void InsertAll(Book[] books)
+        {
+            _context.InsertBooks(books);
+        }
+
         public void Update(Book entity)
         {
             throw new NotImplementedException();
