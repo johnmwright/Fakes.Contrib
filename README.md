@@ -38,8 +38,10 @@ var sut = MakeSut(stub);
 sut.DoSomething(obj);
 
 // Assert
-stub.AssertWasCalled(mock => mock.MyMethod(obj)); // Note that a reference equality is performed here
+stub.AssertWasCalled(mock => mock.MyMethod(obj));
 ```
+
+Note that a reference equality has been performed on `obj`.
 
 **More scenario to come...**
 
