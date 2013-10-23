@@ -21,7 +21,7 @@ namespace Demo.BookStore.Repositories
 
         public void Update(Book entity)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

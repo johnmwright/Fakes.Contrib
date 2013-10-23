@@ -88,8 +88,10 @@ namespace Fakes.Contrib.Tests
         public void AssertWasCalledShouldThrowAnExceptionForInstanceObserverNotAStubObserver()
         {
             // Arrange
-            var stub = new TestStub();
-            stub.InstanceObserver = new Mock<IStubObserver>().Object;
+            var stub = new TestStub
+            {
+                InstanceObserver = new Mock<IStubObserver>().Object
+            };
 
             // Act
             stub.AssertWasCalled(mock => mock.ToString());

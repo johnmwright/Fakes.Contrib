@@ -20,15 +20,7 @@ namespace Fakes.Contrib.Extensions
             var callArguments = call.GetArguments().ToArray();
             var methodCallArguments = methodCallExpression.Arguments.Select(GetArgumentValue).ToArray();
 
-            for (var i = 0; i < methodCallArguments.Length; i++)
-            {
-                if (!methodCallArguments[i].Equals(callArguments[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return !methodCallArguments.Where((argument, index) => !argument.Equals(callArguments[index])).Any();
         }
 
         private static object GetArgumentValue(Expression expression)
