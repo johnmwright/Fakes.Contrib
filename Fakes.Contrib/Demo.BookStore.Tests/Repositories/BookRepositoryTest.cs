@@ -25,6 +25,21 @@ namespace Demo.BookStore.Tests.Repositories
             context.AssertWasCalled(mock => mock.InsertBook(book));
         }
 
+        [TestMethod]
+        public void InsertShouldInsertAnyBookInTheContext()
+        {
+            // Arrange
+            var book = MakeBook();
+            var context = new StubIBookContext().WithObserver();
+            var sut = MakeSut(context);
+
+            // Act
+            sut.Insert(book);
+
+            // Assert
+            context.AssertWasCalled(mock => mock.InsertBook(With.Any<Book>()));
+        }
+
         private static Book MakeBook(string title = "Some title")
         {
             var book = new Book
