@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicProxy\Hooks\InterceptEqualsHook.cs" />
+    <Compile Include="DynamicProxy\Interceptors\CustomEqualsInterceptor.cs" />
     <Compile Include="DynamicProxy\Interceptors\EqualsAlwaysTrueIfNotNullInterceptor.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\StubObservedCallExtensions.cs" />

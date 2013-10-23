@@ -40,6 +40,21 @@ namespace Demo.BookStore.Tests.Repositories
             context.AssertWasCalled(mock => mock.InsertBook(With.Any<Book>()));
         }
 
+        [TestMethod]
+        public void InsertShouldInsertABookWithMatchingTitleInTheContext()
+        {
+            // Arrange
+            const string title = "The Lord of the Rings";
+            var context = new StubIBookContext().WithObserver();
+            var sut = MakeSut(context);
+
+            // Act
+            sut.Insert(MakeBook(title));
+
+            // Assert
+            context.AssertWasCalled(mock => mock.InsertBook(With<Book>.Like(book => book.Title == title)));
+        }
+
         private static Book MakeBook(string title = "Some title")
         {
             var book = new Book
