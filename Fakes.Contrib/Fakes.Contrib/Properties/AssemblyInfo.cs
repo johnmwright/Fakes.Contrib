@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Fakes.Contrib")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This library is a contribution to Microsoft Fakes.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dev One")]
 [assembly: AssemblyProduct("Fakes.Contrib")]

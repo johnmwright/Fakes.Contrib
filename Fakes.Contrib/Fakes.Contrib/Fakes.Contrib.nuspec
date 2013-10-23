@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Fabian Vilers</authors>
+    <owners>Fabian Vilers</owners>
+    <licenseUrl>https://github.com/fvilers/Fakes.Contrib/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/fvilers/Fakes.Contrib</projectUrl>
+    <iconUrl>http://www.dev-one.com/wp-content/uploads/2013/10/devone-picto-128x121.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Version 0.2: first usable version. Watch out, this is still apha code !</releaseNotes>
+    <copyright>Copyright 2013 Dev One</copyright>
+    <tags>fakes tdd mocking mocks unittesting agile contribution</tags>
+	<dependencies>
+      <dependency id="Castle.Core" version="3.2.1" />
+    </dependencies>
+  </metadata>
+</package>
