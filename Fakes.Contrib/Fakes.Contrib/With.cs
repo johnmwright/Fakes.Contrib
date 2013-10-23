@@ -7,16 +7,8 @@ using System.Linq;
 
 namespace Fakes.Contrib
 {
-    /// <summary>
-    /// A class to help build custom equality assertions.
-    /// </summary>
     public static class With
     {
-        /// <summary>
-        /// Returns a proxy class that overrides equals to return true for any not null object.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
         public static T Any<T>()
             where T : class
         {
@@ -33,12 +25,6 @@ namespace Fakes.Contrib
             return new With<T, IEnumerable<T>>(source);
         }
 
-        /// <summary>
-        /// Return a With helper initialized with an Array source.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <returns></returns>
         public static With<T, T[]> Array<T>(T[] source)
             where T : class
         {
@@ -46,17 +32,9 @@ namespace Fakes.Contrib
         }
     }
 
-    /// <summary>
-    /// A class to help build custom equality assertions.
-    /// </summary>
     public static class With<T>
         where T : class
     {
-        /// <summary>
-        /// Returns a proxy class that overrides equals to return true for any object matching the given predicate.
-        /// </summary>
-        /// <param name="predicate"></param>
-        /// <returns></returns>
         public static T Like(Func<T, bool> predicate)
         {
             if (predicate == null) throw new ArgumentNullException("predicate");
@@ -69,11 +47,6 @@ namespace Fakes.Contrib
         }
     }
 
-    /// <summary>
-    /// A class to help build custom equality assertions.
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TOut"></typeparam>
     public class With<T, TOut>
         where T : class
     {
