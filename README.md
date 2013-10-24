@@ -59,7 +59,8 @@ Usage
 	sut.DoSomething(obj);
 	
 	// Assert
-	stub.AssertWasCalled(mock => mock.MyMethod(With<MyClass>.Like(x => x.MyProperty.Contains("world"))));
+	stub.AssertWasCalled(mock => mock.MyMethod(
+		With<MyClass>.Like(x => x.MyProperty.Contains("world"))));
 
 **Scenario 5**: we want to verify that our SUT calls `MyOtherMethod()` on the injected component and passes an instance of a different type that matches (using a predicate) the instance it received.
 
@@ -72,7 +73,8 @@ Usage
 	sut.DoSomethingDifferent(obj);
 	
 	// Assert
-	stub.AssertWasCalled(mock => mock.MyOtherMethod(With<MyOtherClass>.Like(other => other.MyProperty == obj.MyProperty)));
+	stub.AssertWasCalled(mock => mock.MyOtherMethod(
+		With<MyOtherClass>.Like(other => other.MyProperty == obj.MyProperty)));
 
 **Scenario 6**: we want to verity that our SUT calls `MyMethodOnMultiple()` on the injected component and passes an IEnumerable of the references to the object that it received.
 
@@ -108,7 +110,8 @@ Usage
 	
 	// Assert
 	stub.AssertWasCalled(mock => mock.MyOtherMethodOnMultiple(
-		With.Enumerable(array).Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
+		With.Enumerable(array)
+			.Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
 
 Release notes
 -------------
