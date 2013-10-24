@@ -10,6 +10,17 @@ To install Fakes.Contrib, run the following command in the Package Manager Conso
 
 Usage
 -----
+**Note**: each scenarios use a stub generated from the interface bellow and using the Microsoft Fakes tooling.
+
+	public interface IMyComponent
+	{
+	    void MyMethod();
+	    void MyMethod(MyClass obj);
+	    void MyOtherMethod(MyOtherClass obj);
+	    void MyMethodOnMultiple(IEnumerable<MyClass> items);
+	    void MyOtherMethodOnMultiple(IEnumerable<MyOtherClass> items);
+	}
+
 **Scenario 1**: we want to verify that our SUT calls `MyMethod()` on the injected component.
 	
 	// Arrange
