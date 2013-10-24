@@ -42,6 +42,21 @@ namespace Demo.BookStore.Tests.Services
             repository.AssertWasCalled(mock => mock.InsertAll(With.Enumerable(books).Like<Book>((dto, book) => dto.Title == book.Title).ToArray()));
         }
 
+        [TestMethod]
+        public void UpdateAllBooksShouldUpdateTheBooksInTheRepository()
+        {
+            // Arrange
+            var books = MakeBooks();
+            var repository = new StubIBookRepository().WithObserver();
+            var sut = MakeSut(repository);
+
+            // Act
+            sut.UpdateAllBooks(books.AsEnumerable());
+
+            // Assert
+            repository.AssertWasCalled(mock => mock.UpdateAll(With.Enumerable(books.AsEnumerable()).Like<Book>((dto, book) => dto.Title == book.Title).ToArray()));
+        }
+
         private static BookDto[] MakeBooks()
         {
             return new[]

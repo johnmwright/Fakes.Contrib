@@ -7,9 +7,9 @@ namespace Fakes.Contrib.Collections.Generic
     {
         public new bool Equals(object x, object y)
         {
-            if (x is object[] && y is object[])
+            if (x is IEnumerable<object> && y is IEnumerable<object>)
             {
-                return ((object[])x).SequenceEqual((object[])y, this);
+                return ((IEnumerable<object>)x).SequenceEqual((IEnumerable<object>)y, this);
             }
 
             return x.Equals(y);

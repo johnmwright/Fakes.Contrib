@@ -1,9 +1,11 @@
-﻿using Demo.BookStore.Models;
+﻿using System.Collections.Generic;
+using Demo.BookStore.Models;
 
 namespace Demo.BookStore.Repositories
 {
     public interface IBookRepository : IRepository<Book>
     {
         void InsertAll(Book[] books);
+        void UpdateAll(IEnumerable<Book> books);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Demo.BookStore.Contexts;
+﻿using System.Collections.Generic;
+using Demo.BookStore.Contexts;
 using Demo.BookStore.Models;
 using System;
 
@@ -22,6 +23,11 @@ namespace Demo.BookStore.Repositories
         public void InsertAll(Book[] books)
         {
             _context.InsertBooks(books);
+        }
+
+        public void UpdateAll(IEnumerable<Book> books)
+        {
+            // TODO
         }
 
         public void Update(Book entity)

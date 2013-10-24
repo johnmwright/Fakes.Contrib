@@ -1,4 +1,5 @@
-﻿using Demo.BookStore.Models;
+﻿using System.Collections.Generic;
+using Demo.BookStore.Models;
 using Demo.BookStore.Repositories;
 using Demo.BookStore.Services.Dtos;
 using System;
@@ -34,6 +35,16 @@ namespace Demo.BookStore.Services
             }).ToArray();
 
             _repository.InsertAll(books);
+        }
+
+        public void UpdateAllBooks(IEnumerable<BookDto> dtos)
+        {
+            var books = dtos.Select(dto => new Book
+            {
+                Title = dto.Title
+            });
+
+            _repository.UpdateAll(books);
         }
     }
 }
