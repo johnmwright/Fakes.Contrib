@@ -46,6 +46,8 @@
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Repositories\IBookRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\Dtos\BookDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

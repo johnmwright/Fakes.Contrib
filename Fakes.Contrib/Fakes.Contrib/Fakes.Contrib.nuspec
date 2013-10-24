@@ -11,8 +11,11 @@
     <iconUrl>http://www.dev-one.com/wp-content/uploads/2013/10/devone-picto-128x121.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Version 0.3: added more flexible ways to verify a mock
-Version 0.2: first usable version. Watch out, this is still apha code !</releaseNotes>
+    <releaseNotes>
+      Version 0.4: improved With class to allow predicate of two different types
+      Version 0.3: added more flexible ways to verify a mock
+      Version 0.2: first usable version. Watch out, this is still apha code !
+    </releaseNotes>
     <copyright>Copyright 2013 Dev One</copyright>
     <tags>fakes tdd mocking mocks unittesting agile contribution</tags>
     <dependencies>

@@ -43,6 +43,7 @@ Note that a reference equality has been performed on `obj`.
 
 Release notes
 -------------
+* Version 0.4: improved `With` class to allow predicate of two different types
 * Version 0.3: added more flexible ways to verify a mock
 * Version 0.2: first usable version. Watch out, this is still apha code !
 

@@ -1,11 +1,10 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using Demo.BookStore.Contexts;
+﻿using Demo.BookStore.Contexts;
 using Demo.BookStore.Contexts.Fakes;
 using Demo.BookStore.Models;
 using Demo.BookStore.Repositories;
 using Fakes.Contrib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Demo.BookStore.Tests.Repositories
 {
@@ -84,7 +83,7 @@ namespace Demo.BookStore.Tests.Repositories
             sut.InsertAll(books);
 
             // Assert
-            context.AssertWasCalled(mock => mock.InsertBooks(With.Array(books).Like((source, book) => book.Title == source.Title)));
+            context.AssertWasCalled(mock => mock.InsertBooks(With.Enumerable(books).Like<Book>((source, book) => book.Title == source.Title).ToArray()));
         }
 
         private static Book[] MakeBooks(int id = 1)

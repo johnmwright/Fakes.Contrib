@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookRepositoryTest.cs" />
+    <Compile Include="Services\BookServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Demo.BookStore\Demo.BookStore.csproj">
