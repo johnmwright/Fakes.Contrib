@@ -14,11 +14,13 @@ Usage
 
 	public interface IMyComponent
 	{
-	    void MyMethod();
-	    void MyMethod(MyClass obj);
-	    void MyOtherMethod(MyOtherClass obj);
-	    void MyMethodOnMultiple(IEnumerable<MyClass> items);
-	    void MyOtherMethodOnMultiple(IEnumerable<MyOtherClass> items);
+		void MyMethod();
+		
+		void MyMethod(MyClass obj);
+		void MyMethodOnMultiple(IEnumerable<MyClass> items);
+		
+		void MyOtherMethod(MyOtherClass obj);
+		void MyOtherMethodOnMultiple(IEnumerable<MyOtherClass> items);
 	}
 
 **Scenario 1**: we want to verify that our SUT calls `MyMethod()` on the injected component.
