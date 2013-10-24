@@ -13,33 +13,29 @@ PM> Install-Package Fakes.Contrib
 Usage
 -----
 **Scenario 1**: assert that a method has been called: we want to verify that our SUT calls `MyMethod()` on the injected component.
-
-```
-// Arrange
-var stub = new Stub().WithObserver();
-var sut = MakeSut(stub);
-
-// Act
-sut.DoSomething();
-
-// Assert
-stub.AssertWasCalled(mock => mock.MyMethod());
-```
+	
+	// Arrange
+	var stub = new Stub().WithObserver();
+	var sut = MakeSut(stub);
+	
+	// Act
+	sut.DoSomething();
+	
+	// Assert
+	stub.AssertWasCalled(mock => mock.MyMethod());
 
 **Scenario 2**: assert that a method has been called with an argument: we want to verify that our SUT calls `MyMethod()` on the injected component and passes the same object that it received.
 
-```
-// Arrange
-var obj = new object();
-var stub = new Stub().WithObserver();
-var sut = MakeSut(stub);
-
-// Act
-sut.DoSomething(obj);
-
-// Assert
-stub.AssertWasCalled(mock => mock.MyMethod(obj));
-```
+	// Arrange
+	var obj = new object();
+	var stub = new Stub().WithObserver();
+	var sut = MakeSut(stub);
+	
+	// Act
+	sut.DoSomething(obj);
+	
+	// Assert
+	stub.AssertWasCalled(mock => mock.MyMethod(obj));
 
 Note that a reference equality has been performed on `obj`.
 
