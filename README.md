@@ -6,9 +6,7 @@ Installation
 ------------
 To install Fakes.Contrib, run the following command in the Package Manager Console
 
-```
-PM> Install-Package Fakes.Contrib
-```
+	PM> Install-Package Fakes.Contrib
 
 Usage
 -----
