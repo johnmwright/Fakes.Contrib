@@ -16,7 +16,7 @@ Usage
 
 ```
 // Arrange
-var stub = new Stub();
+var stub = new Stub().WithObserver();
 var sut = MakeSut(stub);
 
 // Act
@@ -31,7 +31,7 @@ stub.AssertWasCalled(mock => mock.MyMethod());
 ```
 // Arrange
 var obj = new object();
-var stub = new Stub();
+var stub = new Stub().WithObserver();
 var sut = MakeSut(stub);
 
 // Act
