@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Fakes.Contrib
 {
-    public static class StubBaseExtensions
+    public static class StubExtensions
     {
         public static T WithObserver<T>(this T stub)
             where T : class, IStubObservable
@@ -27,7 +27,7 @@ namespace Fakes.Contrib
             return stub;
         }
 
-        public static void AssertWasCalled<T>(this StubBase<T> stub, Expression<Action<T>> expression, string message = null, params object[] parameters)
+        public static void AssertWasCalled<T>(this IStub<T> stub, Expression<Action<T>> expression, string message = null, params object[] parameters)
             where T : class
         {
             if (stub == null) throw new ArgumentNullException("stub");
