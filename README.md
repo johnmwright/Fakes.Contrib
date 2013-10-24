@@ -1,6 +1,6 @@
 Fakes.Contrib
 =============
-This library is a contribution to Microsoft Fakes.
+This library is a contribution to Microsoft Fakes. It allows to verify expectations on mocks with an easy and fluent syntax.
 
 Installation
 ------------
