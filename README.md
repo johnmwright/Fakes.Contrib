@@ -13,7 +13,7 @@ Usage
 **Scenario 1**: we want to verify that our SUT calls `MyMethod()` on the injected component.
 	
 	// Arrange
-	var stub = new Stub().WithObserver();
+	var stub = new StubIMyComponent().WithObserver();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -25,8 +25,8 @@ Usage
 **Scenario 2**: we want to verify that our SUT calls `MyMethod()` on the injected component and passes the reference to the object that it received.
 
 	// Arrange
-	var obj = new object();
-	var stub = new Stub().WithObserver();
+	var obj = new MyClass();
+	var stub = new StubIMyComponent().WithObserver();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -38,30 +38,77 @@ Usage
 **Scenario 3**: we want to verify that our SUT calls `MyMethod()` on the injected component and passes any instance of the object's type.
 
 	// Arrange
-	var obj = new object();
-	var stub = new Stub().WithObserver();
+	var obj = new MyClass();
+	var stub = new StubIMyComponent().WithObserver();
 	var sut = MakeSut(stub);
 	
 	// Act
 	sut.DoSomething(obj);
 	
 	// Assert
-	stub.AssertWasCalled(mock => mock.MyMethod(With.Any<object>()));
+	stub.AssertWasCalled(mock => mock.MyMethod(With.Any<MyClass>()));
 
 **Scenario 4**: we want to verify that our SUT calls `MyMethod()` on the injected component and passes an instance that matches (using a predicate) the instance it received.
 
 	// Arrange
-	var str = "my string";
-	var stub = new Stub().WithObserver();
+	var obj = new MyClass { MyProperty = "Hello world !" };
+	var stub = new StubIMyComponent().WithObserver();
 	var sut = MakeSut(stub);
 	
 	// Act
-	sut.DoSomething(str);
+	sut.DoSomething(obj);
 	
 	// Assert
-	stub.AssertWasCalled(mock => mock.MyMethod(With<string>.Like(s => s.Contains("my"))));
+	stub.AssertWasCalled(mock => mock.MyMethod(With<MyClass>.Like(x => x.MyProperty.Contains("world"))));
 
-**More scenario to come...**
+**Scenario 5**: we want to verify that our SUT calls `MyOtherMethod()` on the injected component and passes an instance of a different type that matches (using a predicate) the instance it received.
+
+	// Arrange
+	var obj = new MyClass { MyProperty = "Hello world !" };
+	var stub = new StubIMyComponent().WithObserver();
+	var sut = MakeSut(stub);
+	
+	// Act
+	sut.DoSomethingDifferent(obj);
+	
+	// Assert
+	stub.AssertWasCalled(mock => mock.MyOtherMethod(With<MyOtherClass>.Like(other => other.MyProperty == obj.MyProperty)));
+
+**Scenario 6**: we want to verity that our SUT calls `MyMethodOnMultiple()` on the injected component and passes an IEnumerable of the references to the object that it received.
+
+	// Arrange
+	var array = new[]
+	{
+		new MyClass { MyProperty = "Value 1" },
+		new MyClass { MyProperty = "Value 2" }
+	};
+	var stub = new StubIMyComponent().WithObserver();
+	var sut = MakeSut(stub);
+	
+	// Act
+	sut.DoSomehtingOnMultiple(array);
+	
+	// Assert
+	stub.AssertWasCalled(mock => mock.MyMethodOnMultiple(
+		With.Enumerable(array).Like<MyClass>((source, item) => source == item)));
+
+**Scenario 7**: we want to verity that our SUT calls `MyOtherMethodOnMultiple()` on the injected component and passes an IEnumerable of different type that match (using a predicate) the IEnumerable it received.
+
+	// Arrange
+	var array = new[]
+	{
+		new MyClass { MyProperty = "Value 1" },
+		new MyClass { MyProperty = "Value 2" }
+	};
+	var stub = new StubIMyComponent().WithObserver();
+	var sut = MakeSut(stub);
+	
+	// Act
+	sut.DoSomehtingDifferentOnMultiple(array);
+	
+	// Assert
+	stub.AssertWasCalled(mock => mock.MyOtherMethodOnMultiple(
+		With.Enumerable(array).Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
 
 Release notes
 -------------
