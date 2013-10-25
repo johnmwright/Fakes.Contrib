@@ -134,5 +134,5 @@ Release notes
 
 About the author
 ------
-Fabian Vilers  
+[Fabian Vilers](http://be.linkedin.com/in/fvilers)  
 Twitter: [@fvilers](http://www.twitter.com/fvilers)
