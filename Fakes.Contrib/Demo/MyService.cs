@@ -39,10 +39,15 @@ namespace Demo
 
         public void DoSomehtingDifferentOnMultiple(IEnumerable<MyClass> items)
         {
-            _component.MyOtherMethodOnMultiple(items.Select(x => new MyOtherClass
+            var otherItems = items.Select(x => new MyOtherClass
             {
                 MyProperty = x.MyProperty
-            }));
+            }).ToArray();
+
+            if (otherItems.Any())
+            {
+                _component.MyOtherMethodOnMultiple(otherItems);
+            }
         }
     }
 }

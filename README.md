@@ -126,8 +126,24 @@ Usage
 		With.Enumerable(array)
 			.Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
 
+**Scenario 8**: we want to verify that our SUT does not call `MyOtherMethodOnMultiple()` on the injected component.
+
+	// Arrange
+	var array = new MyClass[0];
+	var stub = new StubIMyComponent().WithObserver();
+	var sut = MakeSut(stub);
+	
+	// Act
+	sut.DoSomehtingDifferentOnMultiple(array);
+	
+	// Assert
+	stub.AssertWasNotCalled(mock => mock.MyOtherMethodOnMultiple(
+		With.Enumerable(array)
+			.Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
+
 Release notes
 -------------
+* Version 0.5: added an AssertWasNotCalled assertion
 * Version 0.4: improved `With` to allow predicate of two different types
 * Version 0.3: added more flexible ways to verify a mock
 * Version 0.2: first usable version. Watch out, this is still apha code !

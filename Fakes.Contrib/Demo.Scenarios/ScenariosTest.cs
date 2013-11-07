@@ -119,6 +119,21 @@ namespace Demo.Scenarios
             stub.AssertWasCalled(mock => mock.MyOtherMethodOnMultiple(With.Enumerable(array).Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
         }
 
+        [TestMethod]
+        public void Scenario8()
+        {
+            // Arrange
+            var array = new MyClass[0];
+            var stub = new StubIMyComponent().WithObserver();
+            var sut = MakeSut(stub);
+
+            // Act
+            sut.DoSomehtingDifferentOnMultiple(array);
+
+            // Assert
+            stub.AssertWasNotCalled(mock => mock.MyOtherMethodOnMultiple(With.Enumerable(array).Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
+        }
+
         private static IMyService MakeSut(IMyComponent component = null)
         {
             component = component ?? new StubIMyComponent();
