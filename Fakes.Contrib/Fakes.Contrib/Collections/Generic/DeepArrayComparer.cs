@@ -7,6 +7,11 @@ namespace Fakes.Contrib.Collections.Generic
     {
         public new bool Equals(object x, object y)
         {
+            if (x == null)
+            {
+                return y == null;
+            }
+
             if (x is IEnumerable<object> && y is IEnumerable<object>)
             {
                 return ((IEnumerable<object>)x).SequenceEqual((IEnumerable<object>)y, this);
