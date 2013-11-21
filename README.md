@@ -143,6 +143,7 @@ Usage
 
 Release notes
 -------------
+* Version 0.6: fixed call comparison when mocked method has optional parameters
 * Version 0.5: added an AssertWasNotCalled assertion
 * Version 0.4: improved `With` to allow predicate of two different types
 * Version 0.3: added more flexible ways to verify a mock
