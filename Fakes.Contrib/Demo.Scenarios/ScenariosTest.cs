@@ -11,7 +11,7 @@ namespace Demo.Scenarios
         public void Scenario1()
         {
             // Arrange
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act
@@ -26,7 +26,7 @@ namespace Demo.Scenarios
         {
             // Arrange
             var obj = new MyClass();
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act
@@ -41,7 +41,7 @@ namespace Demo.Scenarios
         {
             // Arrange
             var obj = new MyClass();
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act
@@ -56,7 +56,7 @@ namespace Demo.Scenarios
         {
             // Arrange
             var obj = new MyClass { MyProperty = "Hello world !" };
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act
@@ -71,7 +71,7 @@ namespace Demo.Scenarios
         {
             // Arrange
             var obj = new MyClass { MyProperty = "Hello world !" };
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act
@@ -90,7 +90,7 @@ namespace Demo.Scenarios
                 new MyClass {MyProperty = "Value 1"},
                 new MyClass {MyProperty = "Value 2"}
             };
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act
@@ -109,7 +109,7 @@ namespace Demo.Scenarios
                 new MyClass {MyProperty = "Value 1"},
                 new MyClass {MyProperty = "Value 2"}
             };
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act
@@ -124,7 +124,7 @@ namespace Demo.Scenarios
         {
             // Arrange
             var array = new MyClass[0];
-            var stub = new StubIMyComponent().WithObserver();
+            var stub = new StubIMyComponent().AsObservable();
             var sut = MakeSut(stub);
 
             // Act

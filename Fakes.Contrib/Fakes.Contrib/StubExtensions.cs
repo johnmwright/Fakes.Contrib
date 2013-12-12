@@ -9,7 +9,14 @@ namespace Fakes.Contrib
 {
     public static class StubExtensions
     {
+        [Obsolete("Use AsObservable() to set up the stub as observable.")]
         public static T WithObserver<T>(this T stub)
+            where T : class, IStubObservable
+        {
+            return stub.AsObservable();
+        }
+
+        public static T AsObservable<T>(this T stub)
             where T : class, IStubObservable
         {
             if (stub == null) throw new ArgumentNullException("stub");
@@ -36,7 +43,7 @@ namespace Fakes.Contrib
 
             if (observer == null)
             {
-                throw new ArgumentException("You must add an instance of StubObserver to stub.InstanceObserver or use the extension method stub.WithObserver().");
+                throw new ArgumentException("You must add an instance of StubObserver to stub.InstanceObserver or use the extension method stub.AsObservable().");
             }
 
             var methodCallExpression = expression.AsMethodCallExpression();
@@ -63,7 +70,7 @@ namespace Fakes.Contrib
 
             if (observer == null)
             {
-                throw new ArgumentException("You must add an instance of StubObserver to stub.InstanceObserver or use the extension method stub.WithObserver().");
+                throw new ArgumentException("You must add an instance of StubObserver to stub.InstanceObserver or use the extension method stub.AsObservable().");
             }
 
             var methodCallExpression = expression.AsMethodCallExpression();

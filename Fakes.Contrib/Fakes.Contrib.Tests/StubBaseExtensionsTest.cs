@@ -16,7 +16,7 @@ namespace Fakes.Contrib.Tests
             IStubObservable stub = null;
 
             // Act
-            stub.WithObserver();
+            stub.AsObservable();
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace Fakes.Contrib.Tests
             stub.SetupGet(mock => mock.InstanceObserver).Returns(new Mock<IStubObserver>().Object);
 
             // Act
-            stub.Object.WithObserver();
+            stub.Object.AsObservable();
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace Fakes.Contrib.Tests
             stub.SetupGet(mock => mock.InstanceObserver).Returns(observer);
 
             // Act
-            stub.Object.WithObserver();
+            stub.Object.AsObservable();
 
              // Assert
             stub.VerifySet(mock => mock.InstanceObserver = observer, Times.Never);
@@ -55,7 +55,7 @@ namespace Fakes.Contrib.Tests
             stub.SetupSet(mock => mock.InstanceObserver = It.IsAny<IStubObserver>());
 
             // Act
-            stub.Object.WithObserver();
+            stub.Object.AsObservable();
 
              // Assert
             stub.VerifySet(mock => mock.InstanceObserver = It.IsAny<StubObserver>());
