@@ -49,5 +49,19 @@ namespace Demo
                 _component.MyOtherMethodOnMultiple(otherItems);
             }
         }
+
+        public DateTime ReturnDateTimeNow()
+        {
+            var now = DateTime.Now;
+
+            return now;
+        }
+
+        public Guid ReturnNewGuid()
+        {
+            var guid = Guid.NewGuid();
+
+            return guid;
+        }
     }
 }

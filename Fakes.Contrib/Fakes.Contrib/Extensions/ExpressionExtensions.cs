@@ -11,5 +11,12 @@ namespace Fakes.Contrib.Extensions
 
             return expression.Body as MethodCallExpression;
         }
+
+        public static MemberExpression AsMemberExpression<T>(this Expression<T> expression)
+        {
+            if (expression == null) throw new ArgumentNullException("expression");
+
+            return expression.Body as MemberExpression;
+        }
     }
 }

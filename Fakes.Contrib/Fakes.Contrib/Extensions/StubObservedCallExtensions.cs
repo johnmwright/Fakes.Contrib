@@ -23,8 +23,9 @@ namespace Fakes.Contrib.Extensions
 
             var callArguments = call.GetArguments().ToArray();
             var methodCallArguments = methodCallExpression.Arguments.Select(GetArgumentValue).ToArray();
+            var isEquivalent = callArguments.Length == methodCallArguments.Length && methodCallArguments.SequenceEqual(callArguments, DeepArrayComparer);
 
-            return callArguments.Length == methodCallArguments.Length && methodCallArguments.SequenceEqual(callArguments, DeepArrayComparer);
+            return isEquivalent;
         }
 
         private static object GetArgumentValue(Expression expression)

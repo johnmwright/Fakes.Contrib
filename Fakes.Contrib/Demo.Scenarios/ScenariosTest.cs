@@ -1,6 +1,8 @@
 ﻿using Demo.Fakes;
 using Fakes.Contrib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Fakes;
 
 namespace Demo.Scenarios
 {
@@ -8,7 +10,7 @@ namespace Demo.Scenarios
     public class ScenariosTest
     {
         [TestMethod]
-        public void Scenario1()
+        public void Scenario01()
         {
             // Arrange
             var stub = new StubIMyComponent().AsObservable();
@@ -22,7 +24,7 @@ namespace Demo.Scenarios
         }
 
         [TestMethod]
-        public void Scenario2()
+        public void Scenario02()
         {
             // Arrange
             var obj = new MyClass();
@@ -37,7 +39,7 @@ namespace Demo.Scenarios
         }
 
         [TestMethod]
-        public void Scenario3()
+        public void Scenario03()
         {
             // Arrange
             var obj = new MyClass();
@@ -52,7 +54,7 @@ namespace Demo.Scenarios
         }
 
         [TestMethod]
-        public void Scenario4()
+        public void Scenario04()
         {
             // Arrange
             var obj = new MyClass { MyProperty = "Hello world !" };
@@ -67,7 +69,7 @@ namespace Demo.Scenarios
         }
 
         [TestMethod]
-        public void Scenario5()
+        public void Scenario05()
         {
             // Arrange
             var obj = new MyClass { MyProperty = "Hello world !" };
@@ -82,7 +84,7 @@ namespace Demo.Scenarios
         }
 
         [TestMethod]
-        public void Scenario6()
+        public void Scenario06()
         {
             // Arrange
             var array = new[]
@@ -101,7 +103,7 @@ namespace Demo.Scenarios
         }
 
         [TestMethod]
-        public void Scenario7()
+        public void Scenario07()
         {
             // Arrange
             var array = new[]
@@ -120,7 +122,7 @@ namespace Demo.Scenarios
         }
 
         [TestMethod]
-        public void Scenario8()
+        public void Scenario08()
         {
             // Arrange
             var array = new MyClass[0];
@@ -132,6 +134,41 @@ namespace Demo.Scenarios
 
             // Assert
             stub.AssertWasNotCalled(mock => mock.MyOtherMethodOnMultiple(With.Enumerable(array).Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
+        }
+
+        [TestMethod]
+        public void Scenario09()
+        {
+            using (var context = ObservableShimsContext.Create())
+            {
+                // Arrange
+                var now = new DateTime(2013, 1, 1);
+                ShimDateTime.NowGet = () => now;
+                var sut = MakeSut();
+
+                // Act
+                sut.ReturnDateTimeNow();
+
+                // Assert
+                context.AssertWasCalled(() => DateTime.Now);
+            }
+        }
+
+        [TestMethod]
+        public void Scenario10()
+        {
+            using (var context = ObservableShimsContext.Create())
+            {
+                // Arrange
+                ShimGuid.NewGuid = () => new Guid("97f31de6-5a03-454a-976f-76e2a54a89d4");
+                var sut = MakeSut();
+
+                // Act
+                sut.ReturnNewGuid();
+
+                // Assert
+                context.AssertWasCalled(() => Guid.NewGuid());
+            }
         }
 
         private static IMyService MakeSut(IMyComponent component = null)

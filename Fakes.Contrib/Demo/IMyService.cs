@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Demo
 {
@@ -9,5 +10,7 @@ namespace Demo
         void DoSomethingDifferent(MyClass obj);
         void DoSomehtingOnMultiple(IEnumerable<MyClass> items);
         void DoSomehtingDifferentOnMultiple(IEnumerable<MyClass> items);
+        DateTime ReturnDateTimeNow();
+        Guid ReturnNewGuid();
     }
 }
