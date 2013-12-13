@@ -141,8 +141,36 @@ Usage
 		With.Enumerable(array)
 			.Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
 
-**Scenario 9**: TODO
-**Scenario 10**: TODO
+**Scenario 9**: we want to verify that our SUT does call a static property on a .NET component that was shimed.
+
+	using (var context = ObservableShimsContext.Create())
+	{
+		// Arrange
+		var now = new DateTime(2013, 1, 1);
+		ShimDateTime.NowGet = () => now;
+		var sut = MakeSut();
+		
+		// Act
+		sut.ReturnDateTimeNow();
+		
+		// Assert
+		context.AssertWasCalled(() => DateTime.Now);
+	}
+
+**Scenario 10**: we want to verify that our SUT does call a static method on a .NET component that was shimed.
+
+	using (var context = ObservableShimsContext.Create())
+	{
+		// Arrange
+		ShimGuid.NewGuid = () => new Guid("97f31de6-5a03-454a-976f-76e2a54a89d4");
+		var sut = MakeSut();
+		
+		// Act
+		sut.ReturnNewGuid();
+		
+		// Assert
+		context.AssertWasCalled(() => Guid.NewGuid());
+	}
 
 Release notes
 -------------
