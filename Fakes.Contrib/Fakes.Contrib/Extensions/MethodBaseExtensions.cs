@@ -10,7 +10,13 @@ namespace Fakes.Contrib.Extensions
         {
             if (method == null) throw new ArgumentNullException("method");
 
-            var property = (PropertyInfo)expression.Member;
+            var property = expression.Member as PropertyInfo;
+
+            if (property == null)
+            {
+                throw new NotSupportedException("Expression that is not a PropertyInfo is not (yet) supported");
+            }
+
             var isEquivalent = property.GetMethod == method;
 
             return isEquivalent;

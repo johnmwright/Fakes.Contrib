@@ -141,9 +141,13 @@ Usage
 		With.Enumerable(array)
 			.Like<MyOtherClass>((source, item) => source.MyProperty == item.MyProperty)));
 
+**Scenario 9**: TODO
+**Scenario 10**: TODO
+
 Release notes
 -------------
-* Version 0.5: added an AssertWasNotCalled assertion
+* Version 0.6: added an `ObservableShimsContext` to allow verifications on shims
+* Version 0.5: added an `AssertWasNotCalled` assertion
 * Version 0.4: improved `With` to allow predicate of two different types
 * Version 0.3: added more flexible ways to verify a mock
 * Version 0.2: first usable version. Watch out, this is still apha code !

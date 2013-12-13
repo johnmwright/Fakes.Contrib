@@ -12,10 +12,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>
-      Version 0.5: added an AssertWasNotCalled assertion
-      Version 0.4: improved &quot;With&quot; to allow predicate of two different types
-      Version 0.3: added more flexible ways to verify a mock
-      Version 0.2: first usable version. Watch out, this is still apha code !
+Version 0.6: added an &quot;ObservableShimsContext&quot; to allow verifications on shims
+Version 0.5: added an &quot;AssertWasNotCalled&quot; assertion
+Version 0.4: improved &quot;With&quot; to allow predicate of two different types
+Version 0.3: added more flexible ways to verify a mock
+Version 0.2: first usable version. Watch out, this is still apha code !
     </releaseNotes>
     <copyright>Copyright 2013 Dev One</copyright>
     <tags>fakes tdd mocking mocks unittesting agile contribution</tags>

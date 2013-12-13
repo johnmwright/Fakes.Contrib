@@ -13,6 +13,7 @@ namespace Fakes.Contrib
     public class ObservableShimsContext : IDisposable
     {
         private readonly IDisposable _innerContext;
+        private readonly List<MethodBase> _calls = new List<MethodBase>();
         private bool _disposed;
 
         private ObservableShimsContext()
@@ -21,10 +22,16 @@ namespace Fakes.Contrib
             _innerContext = ShimsContext.Create();
         }
 
+        ~ObservableShimsContext()
+        {
+            Dispose(false);
+        }
+
         public void AssertWasCalled<T>(Expression<FakesDelegates.Func<T>> expression, string message = null, params object[] parameters)
         {
-            var memberExpression = expression.AsMemberExpression();
+            if (_disposed) throw new ObjectDisposedException("ObservableShimsContext");
 
+            var memberExpression = expression.AsMemberExpression();
             if (memberExpression != null)
             {
                 AssertWasCalled(memberExpression, message, parameters);
@@ -32,7 +39,6 @@ namespace Fakes.Contrib
             }
 
             var methodCallExpression = expression.AsMethodCallExpression();
-
             if (methodCallExpression != null)
             {
                 AssertWasCalled(methodCallExpression, message, parameters);
@@ -40,26 +46,6 @@ namespace Fakes.Contrib
             }
 
             throw new ArgumentException("The expression is not a member expression nor a method call expression.");            
-        }
-
-        public void AssertWasCalled(MethodCallExpression expression, string message = null, params object[] parameters)
-        {
-            var wasCalled = _calls.Any(call => call.IsEquivalent(expression));
-
-            if (!wasCalled)
-            {
-                AssertHelper.HandleFail(message: message, parameters: parameters);
-            }
-        }
-
-        public void AssertWasCalled(MemberExpression expression, string message = null, params object[] parameters)
-        {
-            var wasCalled = _calls.Any(call => call.IsEquivalent(expression));
-
-            if (!wasCalled)
-            {
-                AssertHelper.HandleFail(message: message, parameters: parameters);
-            }
         }
 
         public void Dispose()
@@ -87,7 +73,23 @@ namespace Fakes.Contrib
             }
         }
 
-        private readonly List<MethodBase> _calls = new List<MethodBase>();
+        private void AssertWasCalled(MethodCallExpression expression, string message = null, params object[] parameters)
+        {
+            var wasCalled = _calls.Any(call => call.IsEquivalent(expression));
+            if (!wasCalled)
+            {
+                AssertHelper.HandleFail(message: message, parameters: parameters);
+            }
+        }
+
+        private void AssertWasCalled(MemberExpression expression, string message = null, params object[] parameters)
+        {
+            var wasCalled = _calls.Any(call => call.IsEquivalent(expression));
+            if (!wasCalled)
+            {
+                AssertHelper.HandleFail(message: message, parameters: parameters);
+            }
+        }
 
         private void UnitTestIsolationRuntime_AtDetour(object optionalReceiver, MethodBase method, Delegate detour)
         {
