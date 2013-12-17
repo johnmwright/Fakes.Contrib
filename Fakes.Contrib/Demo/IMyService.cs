@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Demo
 {
@@ -12,5 +13,6 @@ namespace Demo
         void DoSomehtingDifferentOnMultiple(IEnumerable<MyClass> items);
         DateTime ReturnDateTimeNow();
         Guid ReturnNewGuid();
+        Task<string> GoOnTheWeb(string url);
     }
 }

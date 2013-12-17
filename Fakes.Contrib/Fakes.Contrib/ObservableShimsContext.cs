@@ -27,7 +27,7 @@ namespace Fakes.Contrib
             Dispose(false);
         }
 
-        public void AssertWasCalled<T>(Expression<FakesDelegates.Func<T>> expression, string message = null, params object[] parameters)
+        public void AssertWasCalled<TResult>(Expression<FakesDelegates.Func<TResult>> expression, string message = null, params object[] parameters)
         {
             if (_disposed) throw new ObjectDisposedException("ObservableShimsContext");
 
@@ -45,7 +45,21 @@ namespace Fakes.Contrib
                 return;
             }
 
-            throw new ArgumentException("The expression is not a member expression nor a method call expression.");            
+            throw new ArgumentException("The expression is not a member expression nor a method call expression.");
+        }
+
+        public void AssertWasCalled<T1, TResult>(Expression<FakesDelegates.Func<T1, TResult>> expression, string message = null, params object[] parameters)
+        {
+            if (_disposed) throw new ObjectDisposedException("ObservableShimsContext");
+
+            var methodCallExpression = expression.AsMethodCallExpression();
+
+            if (methodCallExpression == null)
+            {
+                throw new ArgumentException("The expression is not a method call expression.");
+            }
+
+            AssertWasCalled(methodCallExpression, message, parameters);
         }
 
         public void Dispose()

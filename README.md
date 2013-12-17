@@ -172,6 +172,22 @@ Usage
 		context.AssertWasCalled(() => Guid.NewGuid());
 	}
 
+**Scenario 11**: we want to verify that our SUT does call a method on an instantiated .NET component that was shimed. Note that with the current implementation of the shims' detour, the parameter cannot be verified.
+
+    using (var context = ObservableShimsContext.Create())
+    {
+        // Arrange
+        const string url = "http://www.dev-one.com";
+        var sut = MakeSut();
+        ShimHttpClient.AllInstances.GetStringAsyncString = (c, u) => Task.FromResult("ok");
+
+        // Act
+        await sut.GoOnTheWeb(url);
+
+        // Assert (ATM, parameter cannot be verified)
+        context.AssertWasCalled((HttpClient client) => client.GetStringAsync(url));
+    }
+
 Release notes
 -------------
 * Version 0.6: added an `ObservableShimsContext` to allow verifications on shims

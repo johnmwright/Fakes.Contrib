@@ -3,6 +3,9 @@ using Fakes.Contrib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Fakes;
+using System.Net.Http;
+using System.Net.Http.Fakes;
+using System.Threading.Tasks;
 
 namespace Demo.Scenarios
 {
@@ -168,6 +171,24 @@ namespace Demo.Scenarios
 
                 // Assert
                 context.AssertWasCalled(() => Guid.NewGuid());
+            }
+        }
+
+        [TestMethod]
+        public async Task Scenario11()
+        {
+            using (var context = ObservableShimsContext.Create())
+            {
+                // Arrange
+                const string url = "http://www.dev-one.com";
+                var sut = MakeSut();
+                ShimHttpClient.AllInstances.GetStringAsyncString = (c, u) => Task.FromResult("ok");
+
+                // Act
+                await sut.GoOnTheWeb(url);
+
+                // Assert (ATM, parameter cannot be verified)
+                context.AssertWasCalled((HttpClient client) => client.GetStringAsync(url));
             }
         }
 

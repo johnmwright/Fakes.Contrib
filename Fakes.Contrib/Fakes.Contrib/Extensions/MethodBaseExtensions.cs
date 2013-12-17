@@ -30,5 +30,14 @@ namespace Fakes.Contrib.Extensions
 
             return isEquivalent;
         }
+
+        private static object GetArgumentValue(Expression expression)
+        {
+            var lambda = Expression.Lambda(expression);
+            var compiledExpression = lambda.Compile();
+            var value = compiledExpression.DynamicInvoke();
+
+            return value;
+        }
     }
 }

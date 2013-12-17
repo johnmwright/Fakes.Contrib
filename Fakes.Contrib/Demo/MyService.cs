@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Demo
 {
@@ -62,6 +64,14 @@ namespace Demo
             var guid = Guid.NewGuid();
 
             return guid;
+        }
+
+        public async Task<string> GoOnTheWeb(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                return await client.GetStringAsync(url);
+            }
         }
     }
 }
