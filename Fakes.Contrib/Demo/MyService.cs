@@ -73,5 +73,12 @@ namespace Demo
                 return await client.GetStringAsync(url);
             }
         }
+
+
+        public void DoSomethingWithInterface(IMyOtherInterface obj)
+        {
+            _component.MyMethodUsingAnInterface(obj);
+        }
+
     }
 }

@@ -41,6 +41,22 @@ namespace Demo.Scenarios
             stub.AssertWasCalled(mock => mock.MyMethod(obj));
         }
 
+
+        [TestMethod, Description("Method accepting an instance object of an Interface")]
+        public void Scenario02a()
+        {
+            // Arrange
+            var obj = new StubIMyOtherInterface();
+            var stub = new StubIMyComponent().AsObservable();
+            var sut = MakeSut(stub);
+
+            // Act
+            sut.DoSomethingWithInterface(obj);
+
+            // Assert
+            stub.AssertWasCalled(mock => mock.MyMethodUsingAnInterface(obj));
+        }
+
         [TestMethod]
         public void Scenario03()
         {
@@ -54,6 +70,23 @@ namespace Demo.Scenarios
 
             // Assert
             stub.AssertWasCalled(mock => mock.MyMethod(With.Any<MyClass>()));
+        }
+
+
+
+        [TestMethod, Description("Method using With.Any of an Interface")]
+        public void Scenario03a()
+        {
+            // Arrange
+            IMyOtherInterface obj = new StubIMyOtherInterface();
+            var stub = new StubIMyComponent().AsObservable();
+            var sut = MakeSut(stub);
+
+            // Act
+            sut.DoSomethingWithInterface(obj);
+
+            // Assert
+            stub.AssertWasCalled(mock => mock.MyMethodUsingAnInterface(With.Any<IMyOtherInterface>()));
         }
 
         [TestMethod]

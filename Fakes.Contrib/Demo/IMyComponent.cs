@@ -9,5 +9,6 @@ namespace Demo
         void MyMethodOnMultiple(IEnumerable<MyClass> items);
         void MyOtherMethod(MyOtherClass obj);
         void MyOtherMethodOnMultiple(IEnumerable<MyOtherClass> items);
+        void MyMethodUsingAnInterface(IMyOtherInterface obj);
     }
 }

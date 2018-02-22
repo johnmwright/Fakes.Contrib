@@ -12,6 +12,11 @@ namespace Fakes.Contrib.Collections.Generic
                 return y == null;
             }
 
+            if (x is WithProxyPlaceholder anyPlaceholder && y != null)
+            {
+                return anyPlaceholder.ArgType.IsAssignableFrom(y.GetType());
+            }
+
             if (x is IEnumerable<object> && y is IEnumerable<object>)
             {
                 return ((IEnumerable<object>)x).SequenceEqual((IEnumerable<object>)y, this);
