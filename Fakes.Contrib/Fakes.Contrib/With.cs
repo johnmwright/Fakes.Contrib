@@ -13,9 +13,18 @@ namespace Fakes.Contrib
         {
             var proxyGenerator = new ProxyGenerator();
             var proxyGenerationOptions = new ProxyGenerationOptions(new InterceptEqualsHook());
-            var proxy = proxyGenerator.CreateClassProxy<TValue>(proxyGenerationOptions, new EqualsAlwaysTrueIfNotNullInterceptor());
 
-            return proxy;
+            if (typeof(TValue).IsInterface)
+            {
+                var proxy = proxyGenerator.CreateInterfaceProxyWithoutTarget(typeof(TValue), new EqualsAlwaysTrueIfNotNullInterceptor());
+                return (TValue) proxy;
+            }
+            else
+            {
+                var proxy = proxyGenerator.CreateClassProxy<TValue>(proxyGenerationOptions, new EqualsAlwaysTrueIfNotNullInterceptor());
+                return proxy;
+            }
+            
         }
 
         public static IEnumerableWith<TValue> Enumerable<TValue>(IEnumerable<TValue> source)

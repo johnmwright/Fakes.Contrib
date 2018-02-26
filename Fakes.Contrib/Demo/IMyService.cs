@@ -14,5 +14,6 @@ namespace Demo
         DateTime ReturnDateTimeNow();
         Guid ReturnNewGuid();
         Task<string> GoOnTheWeb(string url);
+        void DoSomethingWithInterface(IMyOtherInterface obj);
     }
 }

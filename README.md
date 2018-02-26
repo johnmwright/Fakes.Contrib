@@ -1,6 +1,6 @@
 Fakes.Contrib
 =============
-This library is a contribution to Microsoft Fakes. It allows to verify expectations on mocks with an easy and fluent syntax.
+This library is a contribution to Microsoft Fakes. It allows tests to verify expectations on mocks with an easy and fluent syntax.
 
 Installation
 ------------
@@ -10,7 +10,7 @@ To install Fakes.Contrib, run the following command in the Package Manager Conso
 
 Usage
 -----
-**Note**: each scenarios use a stub generated from the interface bellow and using the Microsoft Fakes tooling.
+**Note**: each scenarios use a stub generated from the interface below and using the Microsoft Fakes tooling.
 
 	public interface IMyComponent
 	{
@@ -21,12 +21,13 @@ Usage
 		
 		void MyOtherMethod(MyOtherClass obj);
 		void MyOtherMethodOnMultiple(IEnumerable<MyOtherClass> items);
+		void MyMethodUsingAnInterface(IMyOtherInterface obj);
 	}
 
 **Scenario 1**: we want to verify that our SUT calls `MyMethod()` on the injected component.
 	
 	// Arrange
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -39,7 +40,7 @@ Usage
 
 	// Arrange
 	var obj = new MyClass();
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -52,7 +53,7 @@ Usage
 
 	// Arrange
 	var obj = new MyClass();
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -65,7 +66,7 @@ Usage
 
 	// Arrange
 	var obj = new MyClass { MyProperty = "Hello world !" };
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -79,7 +80,7 @@ Usage
 
 	// Arrange
 	var obj = new MyClass { MyProperty = "Hello world !" };
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -97,7 +98,7 @@ Usage
 		new MyClass { MyProperty = "Value 1" },
 		new MyClass { MyProperty = "Value 2" }
 	};
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -115,7 +116,7 @@ Usage
 		new MyClass { MyProperty = "Value 1" },
 		new MyClass { MyProperty = "Value 2" }
 	};
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act
@@ -130,7 +131,7 @@ Usage
 
 	// Arrange
 	var array = new MyClass[0];
-	var stub = new StubIMyComponent().WithObserver();
+	var stub = new StubIMyComponent().AsObservable();
 	var sut = MakeSut(stub);
 	
 	// Act

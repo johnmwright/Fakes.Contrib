@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMyComponent.cs" />
+    <Compile Include="IMyOtherInterface.cs" />
     <Compile Include="IMyService.cs" />
     <Compile Include="MyClass.cs" />
     <Compile Include="MyOtherClass.cs" />
