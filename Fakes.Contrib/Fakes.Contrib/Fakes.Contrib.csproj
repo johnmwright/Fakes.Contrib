@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\..\..\..\Users\Fabian\SharePoint\Team Site - Documents\IT\DevOne.snk</AssemblyOriginatorKeyFile>
@@ -71,9 +71,6 @@
     <Compile Include="With.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Users\Fabian\SharePoint\Team Site - Documents\IT\DevOne.snk">
-      <Link>DevOne.snk</Link>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
