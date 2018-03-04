@@ -197,7 +197,16 @@ Release notes
 * Version 0.3: added more flexible ways to verify a mock
 * Version 0.2: first usable version. Watch out, this is still apha code !
 
-About the author
+About the authors
 ------
-[Fabian Vilers](http://be.linkedin.com/in/fvilers)  
-Twitter: [@fvilers](http://www.twitter.com/fvilers)
+
+This package is maintained by [John M. Wright](https://wrightfully.com)
+<a href="https://twitter.com/Wright2Tweet?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@Wright2Tweet</a>
+
+
+Fakes.Contrib was originally written and maintained by [Fabian Vilers](http://be.linkedin.com/in/fvilers) and [Dev One](https://www.dev-one.com/).
+<a href="https://twitter.com/fvilers?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@fvilers</a>
+
+
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

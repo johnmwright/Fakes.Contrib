@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakes.Contrib", "Fakes.Contrib\Fakes.Contrib.csproj", "{56E2764A-8D9D-4648-BF89-E9516F4B038B}"
 EndProject
@@ -18,7 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8AA041
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0604A22D-1F38-41AB-B0A4-0A2B0FE39FD1}"
 	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
 		Fakes.Contrib\Fakes.Contrib.nuspec = Fakes.Contrib\Fakes.Contrib.nuspec
+		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
@@ -55,5 +57,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AC43A87D-4D68-401C-8FEA-4C84AD251C51} = {318BA1B2-0481-4D67-8233-6AB0AE2988C1}
 		{74AB3BE9-E64B-4641-97D7-A823BB76F5B4} = {318BA1B2-0481-4D67-8233-6AB0AE2988C1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2764AF99-F6A1-4F60-BA6A-B1B4DC63430F}
 	EndGlobalSection
 EndGlobal

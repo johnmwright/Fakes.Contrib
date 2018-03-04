@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Demo")]
+[assembly: AssemblyTitle("Fakes.Contrib Demo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dev One")]
-[assembly: AssemblyProduct("Demo")]
-[assembly: AssemblyCopyright("Copyright © Dev One 2013")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Fakes.Contrib")]
+[assembly: AssemblyCopyright("Copyright © 2013-2018 Fabian Vilers/Dev One, John M. Wright")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

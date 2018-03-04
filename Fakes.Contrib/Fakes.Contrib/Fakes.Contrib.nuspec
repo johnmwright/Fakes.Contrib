@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>Fakes.Contrib</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>Fabian Vilers</authors>
-    <owners>Fabian Vilers</owners>
-    <licenseUrl>https://github.com/fvilers/Fakes.Contrib/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/fvilers/Fakes.Contrib</projectUrl>
-    <iconUrl>http://www.dev-one.com/wp-content/uploads/2013/10/devone-picto-128x121.png</iconUrl>
+    <title>Fakes.Contrib</title>
+    <authors>Fabian Vilers, John M. Wright</authors>
+    <owners>John M. Wright</owners>
+    <licenseUrl>https://github.com/johnmwright/Fakes.Contrib/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/johnmwright/Fakes.Contrib</projectUrl>   
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>This library is a contribution to Microsoft Fakes. It allows tests to verify expectations on mocks with an easy and fluent syntax.</description>
     <releaseNotes>
 Version 0.6: added an &quot;ObservableShimsContext&quot; to allow verifications on shims
 Version 0.5: added an &quot;AssertWasNotCalled&quot; assertion
@@ -18,7 +17,7 @@ Version 0.4: improved &quot;With&quot; to allow predicate of two different types
 Version 0.3: added more flexible ways to verify a mock
 Version 0.2: first usable version. Watch out, this is still apha code !
     </releaseNotes>
-    <copyright>Copyright 2013 Dev One</copyright>
+    <copyright>Copyright 2013-2018 Fabian Vilers/Dev One, John M. Wright</copyright>
     <tags>fakes tdd mocking mocks unittesting agile contribution</tags>
     <dependencies>
       <dependency id="Castle.Core" version="3.2.1" />

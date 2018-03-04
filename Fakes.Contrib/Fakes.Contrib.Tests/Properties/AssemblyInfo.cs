@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Fakes.Contrib.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dev One")]
-[assembly: AssemblyProduct("Fakes.Contrib.Tests")]
-[assembly: AssemblyCopyright("Copyright © Dev One 2013")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Fakes.Contrib")]
+[assembly: AssemblyCopyright("Copyright © 2013-2018 Fabian Vilers/Dev One, John M. Wright")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

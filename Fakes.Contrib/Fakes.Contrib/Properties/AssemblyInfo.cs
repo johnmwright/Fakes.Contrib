@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Fakes.Contrib")]
-[assembly: AssemblyDescription("This library is a contribution to Microsoft Fakes. It allows to verify expectations on mocks with an easy and fluent syntax.")]
+[assembly: AssemblyDescription("This library is a contribution to Microsoft Fakes. It allows tests to verify expectations on mocks with an easy and fluent syntax.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dev One")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Fakes.Contrib")]
-[assembly: AssemblyCopyright("Copyright © Dev One 2013")]
+[assembly: AssemblyCopyright("Copyright © 2013-2018 Fabian Vilers/Dev One, John M. Wright")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
