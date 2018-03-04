@@ -9,13 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{318BA1B2-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakes.Contrib.Tests", "Fakes.Contrib.Tests\Fakes.Contrib.Tests.csproj", "{CE3B878E-D16A-4386-BF72-916A87B456B0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8AA04193-6303-4ED5-8790-E1EAD1EB5872}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0604A22D-1F38-41AB-B0A4-0A2B0FE39FD1}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
