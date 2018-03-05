@@ -11,6 +11,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This library is a contribution to Microsoft Fakes. It allows tests to verify expectations on mocks with an easy and fluent syntax.</description>
     <releaseNotes>
+Version 0.7: 
+  * added support for interface types
+  * removed assembly signing
+  * updated copyright and maintainer/owner information
 Version 0.6: added an &quot;ObservableShimsContext&quot; to allow verifications on shims
 Version 0.5: added an &quot;AssertWasNotCalled&quot; assertion
 Version 0.4: improved &quot;With&quot; to allow predicate of two different types

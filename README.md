@@ -191,6 +191,10 @@ Usage
 
 Release notes
 -------------
+* Version 0.7: 
+  * added support for interface types
+  * removed assembly signing
+  * updated copyright and maintainer/owner information
 * Version 0.6: added an `ObservableShimsContext` to allow verifications on shims
 * Version 0.5: added an `AssertWasNotCalled` assertion
 * Version 0.4: improved `With` to allow predicate of two different types
@@ -200,13 +204,7 @@ Release notes
 About the authors
 ------
 
-This package is maintained by [John M. Wright](https://wrightfully.com)
-<a href="https://twitter.com/Wright2Tweet?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@Wright2Tweet</a>
+This package is maintained by [John M. Wright](https://wrightfully.com) [ Twitter: [@Wright2Tweet](twitter.com/intent/follow?screen_name=Wright2Tweet) ]
 
 
-Fakes.Contrib was originally written and maintained by [Fabian Vilers](http://be.linkedin.com/in/fvilers) and [Dev One](https://www.dev-one.com/).
-<a href="https://twitter.com/fvilers?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@fvilers</a>
-
-
-
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+Fakes.Contrib was originally written and maintained by [Fabian Vilers](http://be.linkedin.com/in/fvilers) and [Dev One](https://www.dev-one.com/). [ Twitter: [@fvilers](twitter.com/intent/follow?screen_name=fvilers) ]
