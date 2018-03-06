@@ -3,13 +3,13 @@
   <metadata>
     <id>Fakes.Contrib</id>
     <version>$version$</version>
-    <title>Fakes.Contrib</title>
+    <title>$title$</title>
     <authors>Fabian Vilers, John M. Wright</authors>
     <owners>John M. Wright</owners>
     <licenseUrl>https://github.com/johnmwright/Fakes.Contrib/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/johnmwright/Fakes.Contrib</projectUrl>   
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This library is a contribution to Microsoft Fakes. It allows tests to verify expectations on mocks with an easy and fluent syntax.</description>
+    <description>$description$</description>
     <releaseNotes>
 Version 0.7: 
   * added support for interface types
@@ -21,7 +21,7 @@ Version 0.4: improved &quot;With&quot; to allow predicate of two different types
 Version 0.3: added more flexible ways to verify a mock
 Version 0.2: first usable version. Watch out, this is still apha code !
     </releaseNotes>
-    <copyright>Copyright 2013-2018 Fabian Vilers/Dev One, John M. Wright</copyright>
+    <copyright>$copyright$</copyright>
     <tags>fakes tdd mocking mocks unittesting agile contribution</tags>
     <dependencies>
       <dependency id="Castle.Core" version="3.2.1" />

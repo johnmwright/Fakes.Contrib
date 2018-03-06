@@ -11,7 +11,7 @@ namespace Fakes.Contrib
 
         public EnumerableWith(IEnumerable<TValue> source)
         {
-            _source = source;
+             _source = source;
         }
 
         public IEnumerable<TOutput> Like<TOutput>(Func<TValue, TOutput, bool> predicate)

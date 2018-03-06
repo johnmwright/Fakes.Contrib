@@ -8,7 +8,7 @@ namespace Fakes.Contrib.Extensions
     {
         public static bool IsEquivalent(this MethodBase method, MemberExpression expression)
         {
-            if (method == null) throw new ArgumentNullException("method");
+            if (method == null) throw new ArgumentNullException(nameof(method));
 
             var property = expression.Member as PropertyInfo;
 
@@ -24,20 +24,12 @@ namespace Fakes.Contrib.Extensions
 
         public static bool IsEquivalent(this MethodBase method, MethodCallExpression expression)
         {
-            if (method == null) throw new ArgumentNullException("method");
+            if (method == null) throw new ArgumentNullException(nameof(method));
 
             var isEquivalent = expression.Method == method;
 
             return isEquivalent;
         }
-
-        private static object GetArgumentValue(Expression expression)
-        {
-            var lambda = Expression.Lambda(expression);
-            var compiledExpression = lambda.Compile();
-            var value = compiledExpression.DynamicInvoke();
-
-            return value;
-        }
+      
     }
 }

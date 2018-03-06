@@ -16,7 +16,7 @@ namespace Fakes.Contrib.DynamicProxy.Hooks
 
         public bool ShouldInterceptMethod(Type type, MethodInfo methodInfo)
         {
-            if (methodInfo == null) throw new ArgumentNullException("methodInfo");
+            if (methodInfo == null) throw new ArgumentNullException(nameof(methodInfo));
 
             return methodInfo.Name == "Equals";
         }

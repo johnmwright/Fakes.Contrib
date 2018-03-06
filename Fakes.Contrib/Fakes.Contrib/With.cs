@@ -39,7 +39,7 @@ namespace Fakes.Contrib
     {
         public static TValue Like(Func<TValue, bool> predicate)
         {
-            if (predicate == null) throw new ArgumentNullException("predicate");
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
 
             var proxyGenerator = new ProxyGenerator();
             var proxyGenerationOptions = new ProxyGenerationOptions(new InterceptEqualsHook());

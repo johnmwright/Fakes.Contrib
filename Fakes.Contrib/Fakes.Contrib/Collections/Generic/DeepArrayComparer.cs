@@ -14,7 +14,7 @@ namespace Fakes.Contrib.Collections.Generic
 
             if (x is WithProxyPlaceholder anyPlaceholder && y != null)
             {
-                return anyPlaceholder.ArgType.IsAssignableFrom(y.GetType());
+                return anyPlaceholder.ArgType.IsInstanceOfType(y);
             }
 
             if (x is IEnumerable<object> && y is IEnumerable<object>)

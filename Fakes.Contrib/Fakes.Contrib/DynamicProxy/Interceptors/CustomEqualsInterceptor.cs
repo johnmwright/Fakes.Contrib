@@ -9,13 +9,12 @@ namespace Fakes.Contrib.DynamicProxy.Interceptors
 
         public CustomEqualsInterceptor(Func<T, bool> equals)
         {
-            if (equals == null) throw new ArgumentNullException("equals");
-            _equals = equals;
+            _equals = equals ?? throw new ArgumentNullException(nameof(equals));
         }
 
         public void Intercept(IInvocation invocation)
         {
-            if (invocation == null) throw new ArgumentNullException("invocation");
+            if (invocation == null) throw new ArgumentNullException(nameof(invocation));
 
             if (invocation.Method.Name == "Equals")
             {

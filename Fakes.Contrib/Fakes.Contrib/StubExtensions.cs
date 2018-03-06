@@ -9,7 +9,7 @@ namespace Fakes.Contrib
 {
     public static class StubExtensions
     {
-        [Obsolete("Use AsObservable() to set up the stub as observable.")]
+        [Obsolete("Use AsObservable() to set up the stub as observable.", true)]
         public static T WithObserver<T>(this T stub)
             where T : class, IStubObservable
         {
@@ -19,14 +19,11 @@ namespace Fakes.Contrib
         public static T AsObservable<T>(this T stub)
             where T : class, IStubObservable
         {
-            if (stub == null) throw new ArgumentNullException("stub");
+            if (stub == null) throw new ArgumentNullException(nameof(stub));
 
-            if (stub.InstanceObserver != null)
+            if (stub.InstanceObserver != null && !(stub.InstanceObserver is StubObserver))
             {
-                if (!(stub.InstanceObserver is StubObserver))
-                {
-                    throw new InvalidOperationException("This stub's instance observer is already set to an incompatible type.");
-                }
+                throw new InvalidOperationException("This stub's instance observer is already set to an incompatible type.");                
             }
 
             stub.InstanceObserver = new StubObserver();
@@ -37,11 +34,9 @@ namespace Fakes.Contrib
         public static void AssertWasCalled<T>(this IStub<T> stub, Expression<Action<T>> expression, string message = null, params object[] parameters)
             where T : class
         {
-            if (stub == null) throw new ArgumentNullException("stub");
+            if (stub == null) throw new ArgumentNullException(nameof(stub));
 
-            var observer = stub.InstanceObserver as StubObserver;
-
-            if (observer == null)
+            if (!(stub.InstanceObserver is StubObserver observer))
             {
                 throw new ArgumentException("You must add an instance of StubObserver to stub.InstanceObserver or use the extension method stub.AsObservable().");
             }
@@ -64,11 +59,9 @@ namespace Fakes.Contrib
         public static void AssertWasNotCalled<T>(this IStub<T> stub, Expression<Action<T>> expression, string message = null, params object[] parameters)
             where T : class
         {
-            if (stub == null) throw new ArgumentNullException("stub");
+            if (stub == null) throw new ArgumentNullException(nameof(stub));
 
-            var observer = stub.InstanceObserver as StubObserver;
-
-            if (observer == null)
+            if (!(stub.InstanceObserver is StubObserver observer))
             {
                 throw new ArgumentException("You must add an instance of StubObserver to stub.InstanceObserver or use the extension method stub.AsObservable().");
             }

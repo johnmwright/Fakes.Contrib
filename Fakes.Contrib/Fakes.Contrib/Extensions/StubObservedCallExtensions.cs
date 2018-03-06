@@ -14,8 +14,8 @@ namespace Fakes.Contrib.Extensions
 
         public static bool IsEquivalent(this StubObservedCall call, MethodCallExpression methodCallExpression)
         {
-            if (call == null) throw new ArgumentNullException("call");
-            if (methodCallExpression == null) throw new ArgumentNullException("methodCallExpression");
+            if (call == null) throw new ArgumentNullException(nameof(call));
+            if (methodCallExpression == null) throw new ArgumentNullException(nameof(methodCallExpression));
 
             if (call.StubbedMethod != methodCallExpression.Method)
             {

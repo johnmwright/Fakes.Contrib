@@ -10,7 +10,7 @@ using System.Reflection;
 
 namespace Fakes.Contrib
 {
-    public class ObservableShimsContext : IDisposable
+    public sealed class ObservableShimsContext : IDisposable
     {
         private readonly IDisposable _innerContext;
         private readonly List<MethodBase> _calls = new List<MethodBase>();
@@ -73,7 +73,7 @@ namespace Fakes.Contrib
             return new ObservableShimsContext();
         }
 
-        protected void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (!_disposed)
             {

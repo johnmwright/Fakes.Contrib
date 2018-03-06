@@ -8,8 +8,8 @@ namespace Fakes.Contrib.Helpers
     {
         public static void HandleFail([CallerMemberName] string assertionName = null, string message = "", params object[] parameters)
         {
-            var args = String.Format(message ?? "", parameters ?? new object[0]);
-            var msg = String.Format("{0} failed. {1}", assertionName, args);
+            var args = string.Format(message ?? "", parameters ?? new object[0]);
+            var msg = $"{assertionName} failed. {args}";
 
             throw new AssertFailedException(msg);
         }
