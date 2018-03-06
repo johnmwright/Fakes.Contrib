@@ -62,6 +62,7 @@
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\MethodBaseExtensions.cs" />
     <Compile Include="Extensions\StubObservedCallExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo-Shared.cs" />
     <Compile Include="WithProxyPlaceholder.cs" />
     <Compile Include="Helpers\AssertHelper.cs" />
     <Compile Include="IEnumerableWith.cs" />

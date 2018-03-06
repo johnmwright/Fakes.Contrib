@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Fakes.Contrib\Properties\AssemblyInfo-Shared.cs">
+      <Link>Properties\AssemblyInfo-Shared.cs</Link>
+    </Compile>
     <Compile Include="IMyComponent.cs" />
     <Compile Include="IMyOtherInterface.cs" />
     <Compile Include="IMyService.cs" />

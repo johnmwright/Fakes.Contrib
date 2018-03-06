@@ -58,6 +58,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="..\Fakes.Contrib\Properties\AssemblyInfo-Shared.cs">
+      <Link>Properties\AssemblyInfo-Shared.cs</Link>
+    </Compile>
     <Compile Include="StubBaseExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
