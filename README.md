@@ -2,6 +2,9 @@ Fakes.Contrib
 =============
 This library is a contribution to Microsoft Fakes. It allows tests to verify expectations on mocks with an easy and fluent syntax.
 
+![VSTS Build Status](https://wrightfully.visualstudio.com/_apis/public/build/definitions/8fee6963-9013-4f29-88cb-8d5362bd770b/4/badge)
+![SonarCloud QualityGate](https://sonarcloud.io/api/project_badges/measure?project=Fakes.Contrib&metric=alert_status)
+
 Installation
 ------------
 To install Fakes.Contrib, run the following command in the Package Manager Console
