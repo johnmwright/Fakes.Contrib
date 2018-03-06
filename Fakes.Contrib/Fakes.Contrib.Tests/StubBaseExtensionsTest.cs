@@ -16,6 +16,7 @@ namespace Fakes.Contrib.Tests
             IStubObservable stub = null;
 
             // Act
+            // ReSharper disable once ExpressionIsAlwaysNull
             stub.AsObservable();
         }
 
@@ -69,6 +70,7 @@ namespace Fakes.Contrib.Tests
             StubBase<object> stub = null;
 
             // Act
+            // ReSharper disable once ExpressionIsAlwaysNull
             stub.AssertWasCalled(mock => mock.ToString());
         }
 
