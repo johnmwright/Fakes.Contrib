@@ -110,3 +110,4 @@ UpgradeLog*.XML
 # Visual Studio 2015 cache/options directory
 .vs/
 /Fakes.Contrib/Demo.Scenarios/FakesAssemblies
+/Fakes.Contrib/Fakes.Contrib.Tests/FakesAssemblies
