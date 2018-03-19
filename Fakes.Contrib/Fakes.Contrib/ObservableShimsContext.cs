@@ -62,6 +62,21 @@ namespace Fakes.Contrib
             AssertWasCalled(methodCallExpression, message, parameters);
         }
 
+
+        public void AssertWasCalled<T1>(Expression<FakesDelegates.Action<T1>> expression, string message = null, params object[] parameters)
+        {
+            if (_disposed) throw new ObjectDisposedException("ObservableShimsContext");
+
+            var methodCallExpression = expression.AsMethodCallExpression();
+
+            if (methodCallExpression == null)
+            {
+                throw new ArgumentException("The expression is not a method call expression.");
+            }
+
+            AssertWasCalled(methodCallExpression, message, parameters);
+        }
+
         public void Dispose()
         {
             Dispose(true);

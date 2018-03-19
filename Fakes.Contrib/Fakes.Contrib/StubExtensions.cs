@@ -48,7 +48,8 @@ namespace Fakes.Contrib
                 throw new ArgumentException("The expression is not a method call expression.");
             }
 
-            var wasCalled = observer.GetCalls().Any(call => call.IsEquivalent(methodCallExpression));
+            var calls = observer.GetCalls();
+            var wasCalled = calls.Any(call => call.IsEquivalent(methodCallExpression));
 
             if (!wasCalled)
             {
