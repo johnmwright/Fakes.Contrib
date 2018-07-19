@@ -27,4 +27,8 @@ Version 0.2: first usable version. Watch out, this is still apha code !
       <dependency id="Castle.Core" version="3.2.1" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\$configuration$\Fakes.Contrib.dll" target="lib\net45" />
+    <file src="bin\$configuration$\Fakes.Contrib.pdb" target="lib\net45" />
+  </files>
 </package>
