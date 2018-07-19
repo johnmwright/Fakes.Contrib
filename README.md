@@ -198,6 +198,10 @@ Usage
 
 Release notes
 -------------
+* Version 0.8:
+  * added SourceLink support
+  * minor code cleanup based on static analysis
+  * adding support for shims with void returns
 * Version 0.7: 
   * added support for interface types
   * removed assembly signing
